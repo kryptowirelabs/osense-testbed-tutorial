@@ -4,9 +4,11 @@
 
 The architecture shown in the image below involves a testbed setup designed for running 5G core and radio access network (RAN) components using various technologies, managed by XCP-ng and supporting NI USRP X310 through PCI passthrough for software-defined radio (SDR) based implementation. With this understanding of the architecture, the next step would be creating the VMs in XCP-ng.
 
+![Alt text](./images/Testbed-sys-arch.jpg)
+
 ### XCP-ng Overview
 
-**XCP-ng** is an open-source hypervisor platform that enables virtualization. It is built on top of the Xen Project and provides a robust and scalable solution for managing virtualized environments. 
+[**XCP-ng**](https://docs.xcp-ng.org/)  is an open-source hypervisor platform that enables virtualization. It is built on top of the Xen Project and provides a robust and scalable solution for managing virtualized environments. 
 
 **Xen Orchestra (XOA)**: A web-based interface used to manage XCP-ng hypervisors, perform VM creation, and manage resources.
 
@@ -16,6 +18,7 @@ Ensure you are connected to the VPN that provides access to the `10.80.103.47` n
 
 1. Access the Xen Orchestra dashboard by visiting `http://10.80.103.47` via a web browser. You will need to authenticate with the appropriate credentials.
 2. Once logged in, you will see the dashboard as shown in the screenshot provided.
+
 
 ### Creating a VM in XCP-ng via Xen Orchestra
 
@@ -31,13 +34,13 @@ Ensure you are connected to the VPN that provides access to the `10.80.103.47` n
 5. Start the VM from the dashboard once it's created.
 6. IP will be assigned through DHCP and can be accessed via SSH.
 
-**Note**: PCI Passthrough for Ettus X310 Device to VM (Verify through CMD: `lspci -k` or `uhd_find_devices` for USRP)
+**Note**: [PCI Passthrough for Ettus X310 Device to VM](https://docs.xcp-ng.org/compute/) (Verify through CMD: `lspci -k` or `uhd_find_devices` for USRP)
 
 ---
 
 ## Steps to Deploy and Run srsRAN 5G in XCP-ng VM
 
-Deploying **srsRAN 5G** and running it in an XCP-ng VM involves creating a suitable VM in XCP-ng, configuring, and running the srsRAN software. This setup will allow you to simulate and test 5G networks using SDRs like the USRP X310 (through PCI passthrough) or even without SDRs by using simulators.
+Deploying [**srsRAN 5G**](https://docs.srsran.com/projects/project/en/latest/general/source/1_getting_started.html) and running it in an XCP-ng VM involves creating a suitable VM in XCP-ng, configuring, and running the srsRAN software. This setup will allow you to simulate and test 5G networks using SDRs like the USRP X310 (through PCI passthrough) or even without SDRs by using simulators.
 
 ### Create a New VM
 
@@ -50,7 +53,7 @@ Deploying **srsRAN 5G** and running it in an XCP-ng VM involves creating a suita
    - **Network**: Assign a network interface that allows communication between VMs and external interfaces or keep it default.
 4. Start the VM, and install the operating system (Ubuntu 22.04 is recommended) via the ISO you selected.
 
-**Note**: This guide provides a comprehensive overview of installing srsRAN Project.
+**Note**: This guide provides a comprehensive overview of installing [srsRAN Project](https://docs.srsran.com/projects/project/en/latest/user_manuals/source/installation.html#manual-installation).
 
 ---
 
