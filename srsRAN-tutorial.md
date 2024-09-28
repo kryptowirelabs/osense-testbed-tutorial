@@ -19,6 +19,7 @@ Ensure you are connected to the VPN that provides access to the `10.80.103.47` n
 1. Access the Xen Orchestra dashboard by visiting `http://10.80.103.47` via a web browser. You will need to authenticate with the appropriate credentials.
 2. Once logged in, you will see the dashboard as shown in the screenshot provided.
 
+![Alt text](./images/xcp-ng.png)
 
 ### Creating a VM in XCP-ng via Xen Orchestra
 
@@ -75,7 +76,11 @@ To successfully run an end-to-end network using the srsRAN Project applications,
 1. To edit any core network function configuration file, for example:
    Modify `/etc/open5gs/amf.yaml` to set the NGAP IP address, PLMN ID, TAC, and NSSAI.
 
+![Alt text](./images/amf-conf.png)
+
 See the screenshot below of successfully running Open5GS.
+
+![Alt text](./images/open5gs-status.png)
 
 2. Add subscriber details in the Open5GS dashboard where it is deployed in the VM (`localhost:9999`). Can be accessed locally through the following command:
    ```bash
@@ -83,6 +88,7 @@ See the screenshot below of successfully running Open5GS.
    ```
 
 ---
+![Alt text](./images/open5gs-dash.png)
 
 ### 5G UE and System Tuning
 
@@ -105,7 +111,11 @@ sudo gnb -c gnb_rf_b200_tdd_n78_20mhz.yml
 Once the gNB is running, you should see the following output:
 
 ---
+![Alt text](./images/gnb.png )
 
+If the connection to the core is successful you should see the following from the AMF log:
+
+![Alt text](./images/amf-log.png)
 ### Connecting to the Network
 
 The **COTS UE** can now search for the network. If the device can successfully receive SIBs and "see" the network, it will appear in the list of available carriers. It will be displayed as **Open5GS 5G** or **00101 5G**. If your PLMN is something else, it may be displayed as `[PLMN] 5G`.
