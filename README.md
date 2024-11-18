@@ -14,11 +14,11 @@ The architecture shown in the image below involves a testbed setup designed for 
 
 **Xen Orchestra (XOA)**: A web-based interface used to manage XCP-ng hypervisors, perform VM creation, and manage resources.
 
-### VPN Access to XOA Dashboard (10.80.103.47)
+### VPN Access to XOA Dashboard (10.80.103.132)
 
-Ensure you are connected to the VPN that provides access to the `10.80.103.47` network (where Xen Orchestra is hosted).
+Ensure you are connected to the VPN that provides access to the `10.80.103.132` network (where Xen Orchestra is hosted).
 
-1. Access the Xen Orchestra dashboard by visiting `http://10.80.103.47` via a web browser. You will need to authenticate with the appropriate credentials.
+1. Access the Xen Orchestra dashboard by visiting `http://10.80.103.132` via a web browser. You will need to authenticate with the appropriate credentials.
 2. Once logged in, you will see the dashboard as shown in the screenshot provided.
 
 ![Alt text](./images/xcp-ng.png)
