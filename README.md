@@ -20,6 +20,7 @@ Ensure you are connected to the VPN that provides access to the `10.80.103.132` 
 
 1. Access the Xen Orchestra dashboard by visiting `http://10.80.103.132` via a web browser. You will need to authenticate with the appropriate credentials.
 2. Once logged in, you will see the dashboard as shown in the screenshot provided.
+3. For Admin account creation and access login to `http://10.80.103.47`
 
 ![Alt text](./images/xcp-ng.png)
 
@@ -121,3 +122,42 @@ If the connection to the core is successful you should see the following from th
 ### Connecting to the Network
 
 The **COTS UE** can now search for the network. If the device can successfully receive SIBs and "see" the network, it will appear in the list of available carriers. It will be displayed as **Open5GS 5G** or **00101 5G**. If your PLMN is something else, it may be displayed as `[PLMN] 5G`.
+
+
+
+### Steps for srsRAN Integration with Aether
+
+**1. Install srsRAN**  
+- Install from PPA:  
+  ```bash
+  sudo add-apt-repository ppa:softwareradiosystems/srsran
+  sudo apt-get update
+  sudo apt-get install srsran -y
+  ```  
+- Or build from source:  
+  ```bash
+  git clone https://github.com/srsRAN/srsRAN_Project.git
+  cd srsRAN_Project && mkdir build && cd build
+  cmake ../ && make -j$(nproc) && sudo make install
+  ```
+
+**2. Configure Aether for gNB**  
+- Update `vars/main.yml` in Aether setup:  
+  ```yaml
+  core:
+      data_iface: your_network_interface
+      ran_subnet: ""
+      amf:
+          ip: your_amf_ip_address
+  ```
+- Ensure gNB and Aether are on the same L2 network.
+
+**3. Deploy and Test**  
+- Start Aether with updated config.  
+- Launch srsRAN gNB:  
+  ```bash
+  sudo srsgnb
+  ```
+- Validate UE connections and end-to-end functionality.  
+
+For details, refer to the [Aether Docs](https://docs.aetherproject.org/master/onramp/gnb.html).
